@@ -22,7 +22,7 @@ THINKA_Integrator integrator = new THINKA_Integrator();
 ```Apex
 integrator.userSearch('山田', 0, 100);
 ```
-結果はすべて THINKA_IntegrateDTO のインスタンスで返される。
+結果はすべて THINKA_IntegrateDTO で返される。
 ```Apex:THINKA_IntegrateDTO
 public with sharing class THINKA_IntegrateDTO {
     public Boolean isSuccess = true;
