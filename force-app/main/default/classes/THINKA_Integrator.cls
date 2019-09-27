@@ -99,7 +99,7 @@ public with sharing class THINKA_Integrator {
         if (info_json != '') payload += '&info_json=' + urlEncodeUtf8(info_json);
         // Httpリクエスト
         basicThinkaCallout('application/x-www-form-urlencoded', payload);
-        result.isSuccess = true;
+        if (result.msg == null) result.isSuccess = true;
         return result;
     }
 
@@ -118,7 +118,7 @@ public with sharing class THINKA_Integrator {
         payload += '&tel=' + urlEncodeUtf8(tel);
         // Httpリクエスト
         basicThinkaCallout('application/x-www-form-urlencoded', payload);
-        result.isSuccess = true;
+        if (result.msg == null) result.isSuccess = true;
         return result;
     }
 
@@ -173,7 +173,7 @@ public with sharing class THINKA_Integrator {
         payload += '&type=' + urlEncodeUtf8(type);
         // Httpリクエスト
         basicThinkaCallout('application/x-www-form-urlencoded', payload);
-        result.isSuccess = true;
+        if (result.msg == null) result.isSuccess = true;
         return result;
     }
 
