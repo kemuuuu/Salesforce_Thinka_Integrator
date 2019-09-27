@@ -1,8 +1,9 @@
 # SalesforceシンカCTI連携
 ## 準備
-1. カスタム表示ラベルを2つ用意してください。  
+1. カスタム表示ラベルを2つ用意してください。 
+
 |名前|値|
-----|----
+|:----|:----|
 |THINKA_ID|シンカCTIの顧客ID|
 |THINKA_SECRET|シンカCTIのSecretLetter|
 
