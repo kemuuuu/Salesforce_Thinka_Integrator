@@ -18,11 +18,11 @@
 ```Apex
 THINKA_Integrator integrator = new THINKA_Integrator();
 ```
-使いたいメソッドを呼び出します。
+使いたいメソッドを呼び出す。
 ```Apex
 integrator.userSearch('山田', 0, 100);
 ```
-結果はすべて THINAK_IntegrateDTO のインスタンスで返されます。
+結果はすべて THINAK_IntegrateDTO のインスタンスで返される。
 ```Apex:THINKA_IntegrateDTO
 public with sharing class THINKA_IntegrateDTO {
     public Boolean isSuccess = true;
