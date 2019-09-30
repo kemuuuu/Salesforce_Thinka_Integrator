@@ -1,4 +1,10 @@
 public with sharing class Example {
+
+    @AuraEnabled
+    public static string exec(String recordId){
+        return '';
+    }
+
     /**
      * シンカCTIに更新情報を連携する
      */
@@ -12,6 +18,20 @@ public with sharing class Example {
         // シンカCTIにデータを連携
         THINKA_Integrator integrator = new THINKA_Integrator();
         THINKA_IntegrateDTO result = integrator.userInfoReg(rec.Phone, rec.LastName, '', addr, '', String.valueOf(rec.Birthdate), rec.Description, '');
+        if (result.isSuccess) {
+            // 正常終了
+        } else {
+            // 異常終了
+            System.debug(result.msg);
+        }
+    }
+
+    /**
+     * シンカCTIの顧客情報をキーワード検索する
+     */
+    public void searchUser(String searchText) {
+        THINKA_Integrator integrator = new THINKA_Integrator();
+        THINKA_IntegrateDTO result = integrator.userSearch(searchText, 0, 100);
         if (result.isSuccess) {
             // 正常終了
         } else {

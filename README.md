@@ -30,3 +30,24 @@ public with sharing class THINKA_IntegrateDTO {
     public List<String> data;
 }
 ```
+
+## 注意事項
+- データの更新条件はシンカCTI WebAPIに依拠する。
+- Apexトリガを使用した処理に組み込むことはできない。
+
+## サンプルアプリケーション(Salesforce->シンカCTI連携)
+### 概要
+取引先責任者詳細ページにアクションを設置し、そのアクション実行時に開いている取引先責任者のデータをシンカCTIへ連携する
+### 項目マッピング
+
+|Salesforce項目Api名|シンカCTI項目名|
+|:----|:----|
+|Phone|tel|
+|LastName|name|
+|マッピングなし|name_kana|
+|MailingAddress|addr|
+|マッピングなし|sex|
+|Birthdate|d_o_b|
+|Description|status|
+
+すべて取引先責任者オブジェクトとのマッピング
