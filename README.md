@@ -33,7 +33,8 @@ public with sharing class THINKA_IntegrateDTO {
 
 ## 注意事項
 - データの更新条件はシンカCTI WebAPIに依拠する。
-- Apexトリガを使用した処理に組み込むことはできない。
+- Apexトリガ、バッチを使用した処理に組み込むことはできない。
+- 今のところ画像操作のAPIには未対応。
 
 ## サンプルアプリケーション(Salesforce->シンカCTI連携)
 ### 概要
