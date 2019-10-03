@@ -1,4 +1,4 @@
-<aura:component implements="force:lightningQuickAction, force:hasRecordId" controller="Example">
+<aura:component implements="force:lightningQuickAction, force:hasRecordId" controller="THINKA_IntegrateController">
   <aura:handler name="init" value="{!this}" action="{!c.exec}"/>
   <div>
     ...
