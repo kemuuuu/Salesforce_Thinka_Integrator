@@ -3,7 +3,7 @@ public with sharing class Example {
     /**
      * シンカCTIに更新情報を連携する
      */
-    public void registerContactOnThinka(Contact rec) {
+    public static void registerContactOnThinka(Contact rec) {
         // 住所用意
         String addr = rec.MailingPostalCode;
         addr += rec.MailingCountry;
@@ -24,7 +24,7 @@ public with sharing class Example {
     /**
      * シンカCTIの顧客情報をキーワード検索する
      */
-    public void searchUser(String searchText) {
+    public static void searchUser(String searchText) {
         THINKA_Integrator integrator = new THINKA_Integrator();
         THINKA_IntegrateDTO result = integrator.userSearch(searchText, 0, 100);
         if (result.isSuccess) {
@@ -39,7 +39,7 @@ public with sharing class Example {
     /**
      * 着信履歴を検索する
      */
-     @future(callout=true)
+    @future(callout=true)
     public static void historySearch(String searchText) {
         THINKA_Integrator integrator = new THINKA_Integrator();
         THINKA_IntegrateDTO result = integrator.historySearch(searchText, 0, 100);
