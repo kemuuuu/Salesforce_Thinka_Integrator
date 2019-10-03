@@ -30,6 +30,13 @@ public with sharing class THINKA_IntegrateDTO {
     public List<String> data;
 }
 ```
+顧客情報登録などの自由項目のJSONの作成
+```Apex
+sObject record; // 処理対象Salesforceレコード
+List<String> fields; // 処理対象の項目名のリスト
+THINKA_JSONGenerator gen = new THINKA_JSONGenerator().setRecord(record)).setFields(fields);
+String infoJSON = gen.generateJSON();
+```
 
 ## 注意事項
 - データの更新条件はシンカCTI WebAPIに依拠する。
