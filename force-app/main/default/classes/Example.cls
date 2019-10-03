@@ -39,7 +39,8 @@ public with sharing class Example {
     /**
      * 着信履歴を検索する
      */
-    public void historySearch(String searchText) {
+     @future(callout=true)
+    public static void historySearch(String searchText) {
         THINKA_Integrator integrator = new THINKA_Integrator();
         THINKA_IntegrateDTO result = integrator.historySearch(searchText, 0, 100);
     }
