@@ -10,9 +10,12 @@ public with sharing class Example {
         addr += rec.MailingState;
         addr += rec.MailingCity;
         addr += rec.MailingStreet;
+        // 自由項目
+        THINKA_JSONGenerator gen = new THINKA_JSONGenerator().setRecord(rec).setFields(new List<String>{'id', 'LastName', 'Birthdate', 'Description'});
+        String infoJSON = gen.generateJSON();
         // シンカCTIにデータを連携
         THINKA_Integrator integrator = new THINKA_Integrator();
-        THINKA_IntegrateDTO result = integrator.userInfoReg(rec.Phone, rec.LastName, '', addr, '', String.valueOf(rec.Birthdate), rec.Description, '');
+        THINKA_IntegrateDTO result = integrator.userInfoReg(rec.Phone, rec.LastName, '', addr, '', String.valueOf(rec.Birthdate), rec.Description, infoJSON);
         if (result.isSuccess) {
             // 正常終了
         } else {
