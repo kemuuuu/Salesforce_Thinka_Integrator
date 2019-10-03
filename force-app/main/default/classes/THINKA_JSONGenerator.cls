@@ -1,5 +1,11 @@
 public with sharing class THINKA_JSONGenerator {
 
+    final String startObj = '{';
+    final String endObj = '}';
+    final String colon = ':';
+    final String doubleQuote = '\"';
+    final string comma = ',';
+
     SObject record;
     List<String> fields;
     Map<String,String> infoJsonMap;
@@ -20,22 +26,26 @@ public with sharing class THINKA_JSONGenerator {
     }
 
     public string generateJSON() {
-        JSONGenerator gen = JSON.createGenerator(false);
+        String jsonStr = '';
+        // BEGIN depth1
+        jsonStr += startObj;
         for (Integer i=0; i<fields.size(); i++) {
+            // 初回以外はカンマを先頭につける
+            if (jsonStr != startObj) jsonStr += comma;
+            // 対象項目名
             String fieldName = this.fields.get(i);
-            // BEGIN depth1
-            gen.writeStartObject();
-            gen.writeFieldName(String.valueOf(i));
+            jsonStr += doubleQuote + String.valueOf(i+1) + doubleQuote;
+            jsonStr += colon;
             // BEGIN depth2
-            gen.writeStartObject();
-            gen.writeStringField(fieldName, String.valueOf(record.get(fieldName)));
+            jsonStr += startObj;
+            jsonStr += doubleQuote + fieldName + doubleQuote;
+            jsonStr += colon;
+            jsonStr += doubleQuote + record.get(fieldName) + doubleQuote;
             // END depth2
-            gen.writeEndObject();
-            // END depth1
-            gen.writeEndObject();
+            jsonStr += endObj;
         }
-        String ret = gen.getAsString();
-        System.debug(ret);
-        return ret;
+        // END depth1
+        jsonStr += endObj;
+        return jsonStr;
     }
 }

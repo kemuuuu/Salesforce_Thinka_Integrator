@@ -225,9 +225,9 @@ public with sharing class THINKA_Integrator {
                 // THINKA api レスポンスコード
                 Map<String, Object> resMap = (Map<String, Object>)JSON.deserializeUntyped(resJSON);
                 Integer resp_code = Integer.valueOf(resMap.get('resp_code'));
-                if (resp_code == 400) throw new ThinkaException('method, id, sigが未設定 もしくは IDが不正 もしくは データが不正');
-                else if (resp_code == 401) throw new ThinkaException('sigが不正');
-                else if (resp_code == 404) throw new ThinkaException('methodが不正');
+                if (resp_code >= 400) {
+                    throw new ThinkaException(String.valueOf(resMap.get('resp_msg')));
+                } 
                 // レスポンスデータ取得
                 retData = JSON.serialize(resMap.get('resp_data'));
             } else {
