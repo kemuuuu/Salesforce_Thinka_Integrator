@@ -40,7 +40,7 @@ String infoJSON = gen.generateJSON();
 
 ## 注意事項
 - データの更新条件はシンカCTI WebAPIに依拠する。
-- Apexトリガ、バッチを使用した処理に組み込むことはできない。
+- Apexトリガを使用した処理に組み込むことはできない。
 - 今のところ画像操作のAPIには未対応。
 
 ## サンプルアプリケーション(Salesforce->シンカCTI連携)

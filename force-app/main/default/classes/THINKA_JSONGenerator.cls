@@ -30,10 +30,11 @@ public with sharing class THINKA_JSONGenerator {
         // BEGIN depth1
         jsonStr += startObj;
         for (Integer i=0; i<fields.size(); i++) {
-            // 初回以外はカンマを先頭につける
-            if (jsonStr != startObj) jsonStr += comma;
             // 対象項目名
             String fieldName = this.fields.get(i);
+            // 初回以外はカンマを先頭につける
+            if (jsonStr != startObj) jsonStr += comma;
+            // カラム番号
             jsonStr += doubleQuote + String.valueOf(i+1) + doubleQuote;
             jsonStr += colon;
             // BEGIN depth2
